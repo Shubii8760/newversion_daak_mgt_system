@@ -51,15 +51,11 @@ Route::group(['middleware'  => ['auth']], function () {
         // Route To store Complaints//
         Route::post('/post-Complaints', [ComplaintController::class, 'postComplaints'])->name('post.complaints');
 
+        // Route To Send Otp//
+        Route::post('/send-otp', [ApplicationController::class, 'sendOtp'])->name('sendOtp');
+
         // Route To//
         Route::get('/verification/{id}', [ApplicationController::class, 'verification'])->name('verification');
-
-        // Route To verify Otp//
-        // Route::post('/verified', [ApplicationController::class, 'verifiedOtp'])->name('verifiedOtp');
-
-        // Route TO Resend Otp//
-        // Route::get('/resend-otp', [ApplicationController::class, 'resendOtp'])->name('resendOtp');
-        Route::post('/resend-otp', [ApplicationController::class, 'sendOtp'])->name('sendOtp');
     });
 
     Route::group(['middleware' => ['admin']], function () {
@@ -89,9 +85,3 @@ Route::group(['middleware'  => ['auth']], function () {
 
 //Route for logout//
 Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
-
-
-
-
-
-// Route::get('/user', [UserController::class, 'user'])->name('user');

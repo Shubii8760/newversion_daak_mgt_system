@@ -2,12 +2,9 @@
 @section('content')
     <div class="container ">
         <div class="row">
-            {{-- <div class="col-12"> --}}
                 <div class="card mt-3 " style="width: 130%; border-radius:15px;">
-                    {{-- style="width: 110%;" --}}
                     <div class="card-body">
                         <div class="container-fluid ">
-                            {{-- <img src="\storage\images\1684753184.jpg" alt=""> --}}
                             <table id="yajra-datatable" class="table">
 
                                 <thead>

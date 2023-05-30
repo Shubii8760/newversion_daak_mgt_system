@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
-
 use Illuminate\Support\Facades\DB as FacadesDB;
 
 class DashboardController extends Controller
@@ -22,14 +20,11 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
-        $totalUser = user::count();
-
-        // $totalAllUsers = User::count();
-
         $user_name = Auth::user()->name;
+        $totalUser = user::count();
         if (Auth::check()) {
-            return view('Dashboard', compact('user_name', 'totalUser'))->with('success', 'You have Successfully loggedin....');
-            // , 'totalAllUsers'
+            session()->flash('success', 'You have successfully logged in.');
+            return view('Dashboard', compact('user_name', 'totalUser'));
         }
     }
 
@@ -43,7 +38,8 @@ class DashboardController extends Controller
     {
         $user_name = Auth::user()->name;
         if (Auth::check()) {
-            return view('Dashboard', compact('user_name'))->with('success', 'You have Successfully loggedin....');
+            session()->flash('success', 'You have successfully logged in.');
+            return view('Dashboard', compact('user_name'));
         }
     }
 
@@ -55,17 +51,16 @@ class DashboardController extends Controller
 
     public function index()
     {
-        // dump(Auth::user());
-        // dump(Auth::user()->role_id);
+
         $user = Auth::user();
-        // dd($user);
-        if ($user->role_id   == 1) { // Admin
+
+        if ($user->role_id   == 1) {
             return redirect()->route('admin.dashboard');
         }
-        if ($user->role_id   == 2) { // User
+        if ($user->role_id   == 2) {
             return redirect()->route('manager');
-        } elseif ($user->role_id   == 3) { // User
-            return redirect()->route('home');
+        } elseif ($user->role_id   == 3) {
+            return redirect()->route('home')->with('success', 'You have successfully logged in.');
         }
     }
 
@@ -80,6 +75,6 @@ class DashboardController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return Redirect('/');
+        return redirect('/')->with('success', ' You have successfully logged out...');
     }
 }

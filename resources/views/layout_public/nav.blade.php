@@ -10,12 +10,12 @@
                     <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
                     <a href="{{ route('complaint') }}" class="nav-item nav-link">Application</a>
                     <a href="#" class="nav-item nav-link">All_Application</a>
-
                 </div>
                 <div class="navbar-nav ms-auto">
-                    <a href="{{route('logout') }}" class="nav-item nav-link">Logout</a>
+                    <a href="{{ route('logout') }}" id="logout-btn" class="nav-item nav-link">Logout</a>
                 </div>
             </div>
         </div>
     </nav>
 </div>
+

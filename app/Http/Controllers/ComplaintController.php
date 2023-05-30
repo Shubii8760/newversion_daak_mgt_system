@@ -32,9 +32,7 @@ class ComplaintController extends Controller
 
     public function postComplaints(ComplaintSuggestionRequest $request)
     {
-        // dump($request->otp);
         $complaints_suggestions = EmailVerification::where('email', $request->email)->first();
-        // dd($complaints_suggestions);
         if ($complaints_suggestions->otp == $request->otp) {
             if ($request->hasFile('file')) {
                 $image = $request->file('file');
@@ -51,11 +49,10 @@ class ComplaintController extends Controller
             $complaints_suggestions->type = $request->type;
             $complaints_suggestions->file = $filename;
             $complaints_suggestions->save();
-            return redirect()->back()->with('succes', 'Application has been send successfully.');
-        }else{
-            return redirect()->back()->with('error', 'something wnet wrong?');
+            return redirect()->back()->with('success', 'Application has been send successfully.');
+        } else {
+            return redirect()->back()->with('error', 'something went wrong?');
         }
-
     }
 
 
@@ -71,15 +68,14 @@ class ComplaintController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->editColumn('file', function ($row) {
-                    return '<img src="' . Storage::url('images/' . $row->file) . '"  width="50" height="50"></img>';
+                    $fileUrl = asset('uploads/' . $row->file);
+                    return '<a href="' . $fileUrl . '">Download File</a>';
                 })
-
                 ->addColumn('delete', function ($row) {
-                    return    "<button class='btn btn-sm btn-danger delete-application' data-id='" . $row->id . "'>Delete</button>";
+                    return  "<button class='btn btn-sm btn-danger delete-application' data-id='" . $row->id . "'>Delete</button>";
                 })
-
                 ->addColumn('edit', function ($row) {
-                    return    '<a href="' . route('edit', ['id' => $row->id]) . '" class="btn btn-success btn-sm">Edit</a>';
+                    return  '<a href="' . route('edit', ['id' => $row->id]) . '" class="btn btn-success btn-sm">Edit</a>';
                 })
                 ->rawColumns(['delete', 'edit', 'file'])
                 ->make(true);
@@ -137,11 +133,9 @@ class ComplaintController extends Controller
         if (!is_null($ComplaintSuggestion)) {
             $ComplaintSuggestion->delete();
         }
-
         return response()->json([
             'success' => true,
             'message' => 'Successfully Deleted.'
         ]);
     }
 }
-

@@ -32,7 +32,7 @@ class LoginController extends Controller
         //  dd($credentials);
         if (Auth::attempt($credentials)) {
             return redirect()->route('dashboard');
-            //  ->with('success', 'You have Successfully loggedin....')
+            
         }
         return redirect()->back()->with('error', 'You Have Entered  Wrong Credentials....');
     }

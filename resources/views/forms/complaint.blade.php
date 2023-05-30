@@ -36,8 +36,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fa fa-phone-square fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
@@ -129,6 +127,7 @@
 @endsection
 
 @push('scripts')
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -153,8 +152,8 @@
                     url: '{{ route('sendOtp') }}',
                     type: 'post',
                     data: {
-                        'email':  email,
-                         "_token": '{{ csrf_token() }}',
+                        'email': email,
+                        "_token": '{{ csrf_token() }}',
                     },
                     success: function(response) {
                         $('#verificationForm').html(response.data);
@@ -165,9 +164,5 @@
     </script>
 @endpush
 
-
-
-
 </body>
-
 </html>

@@ -15,9 +15,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('plugins/ fontawesome - free / css / all . min . css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('dist/ css / adminlte . min . css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('plugins/ fontawesome - free / css / all . min . css') }}">
+    <!-- Theme style --> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('dist/ css / adminlte . min . css') }}"> --}}
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -73,9 +73,9 @@
     {{-- for edit page --}}
 
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     {{-- toastr js  --}}
@@ -85,7 +85,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous">
     </script>
-
 
     {{-- toastr js  --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
@@ -126,6 +125,7 @@
         @endif
     </script>
     @stack('scripts')
+
 </body>
 
 </html>

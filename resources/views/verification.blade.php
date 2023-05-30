@@ -7,15 +7,9 @@
     <title>Verification</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
-
 </head>
 
 <body>
@@ -32,7 +26,8 @@
                                     <p id="message_error" style="color:red;"></p>
                                     <p id="message_success" style="color:green;"></p>
 
-                                    <form action="{{ route('verifiedOtp') }}" method="post" id="verificationForm" class="mx-1 mx-md-4">
+                                    <form action="{{ route('verifiedOtp') }}" method="post" id="verificationForm"
+                                        class="mx-1 mx-md-4">
 
                                         @csrf
                                         <div class="d-flex flex-row align-items-center mb-4">
@@ -74,32 +69,6 @@
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-{{--
-    <p id="message_error" style="color:red;"></p>
-<p id="message_success" style="color:green;"></p>
-<form method="post" id="verificationForm">
-    @csrf
-    <input type="email" name="email" value="{{ $email }}"><br><br>
-    <input type="number" name="otp" placeholder="Enter OTP" required>
-    <br>
-    <br>
-    <button type="submit">Verify</button>
-</form>
-    <button id="resendOtpVerification">Resend Verification OTP</button> --}}
-
-
-
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"></script>
 
@@ -127,29 +96,6 @@
         }
 
 
-        // $(document).ready(function() {
-        //     $('#verificationForm').submit(function(e) {
-        //         e.preventDefault();
-        //         var formData = $(this).serialize();
-        //         console.log('test');
-
-        //         $.ajax({
-        //             url: "{{ route('verifiedOtp') }}",
-        //             type: "POST",
-        //             data: formData,
-        //             success: function(res) {
-        //                 if (res.success) {
-        //                     alert(res.msg);
-        //                 } else {
-        //                     $('#message_error').text(res.msg);
-        //                     setTimeout(() => {
-        //                         $('#message_error').text('');
-        //                     }, 3000);
-        //                 }
-        //             }
-        //         });
-        //     });
-        // });
 
         if ($('#verificationForm').length > 0) {
             timer();

@@ -1,10 +1,8 @@
 @extends('layout_public.app')
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    {{-- @include('Layouts.include.header') --}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,13 +12,11 @@
 @include('Layouts.include.sidebar')
 
 <body>
-
- <div class="container mt-3">
+    <div class="container mt-3">
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> Edit Profile </p>
         <form action="" method="post">
             @csrf
 
-          
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" name="email" id="email"
@@ -61,23 +57,14 @@
     <div class="col-12">
         <div class="form-group button">
             <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Update Profile</button>
-            {{--  <a role="button" href="admin/index.html" class="bizwheel-btn theme-2">Login</a>  --}}
-        </div>
-    </div>
-    </div>
-    </form>
-    </div>
 
-    </div>
-    </div>
-    </div>
+        </div>
     </div>
     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
     </div>
     </form>
     </div>
-    {{-- @include('Layouts.include.footer') --}}
 
 </body>
 
