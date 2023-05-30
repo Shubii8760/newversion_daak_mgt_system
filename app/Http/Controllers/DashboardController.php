@@ -24,12 +24,11 @@ class DashboardController extends Controller
     {
         $totalUser = user::count();
 
-        // $totalAllUsers = User::count();
-
         $user_name = Auth::user()->name;
         if (Auth::check()) {
-            return view('Dashboard', compact('user_name', 'totalUser'))->with('success', 'You have Successfully loggedin....');
-            // , 'totalAllUsers'
+            // return view('Dashboard', compact('user_name', 'totalUser'))->with('success', 'You have Successfully loggedin....');
+            session()->flash('success', 'You have successfully logged in.');
+            return view('Dashboard', compact('user_name', 'totalUser'));
         }
     }
 
@@ -43,7 +42,9 @@ class DashboardController extends Controller
     {
         $user_name = Auth::user()->name;
         if (Auth::check()) {
-            return view('Dashboard', compact('user_name'))->with('success', 'You have Successfully loggedin....');
+            // return view('Dashboard', compact('user_name'))->with('success', 'You have Successfully loggedin....');
+            session()->flash('success', 'You have successfully logged in.');
+            return view('Dashboard', compact('user_name'));
         }
     }
 
@@ -64,8 +65,8 @@ class DashboardController extends Controller
         }
         if ($user->role_id   == 2) { // User
             return redirect()->route('manager');
-        } elseif ($user->role_id   == 3) { // User
-            return redirect()->route('home');
+        } elseif ($user->role_id   == 3){
+            return redirect()->route('home')->with('success', 'You have successfully logged in.');
         }
     }
 

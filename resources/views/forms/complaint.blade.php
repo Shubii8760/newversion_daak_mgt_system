@@ -1,5 +1,17 @@
 @extends('layout_public.app')
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    
     <div class="container mt-2" id="myDivform">
         <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4"> Application </p>
         <form action="{{ route('post.complaints') }}" id="verificationForm" method="post" enctype="multipart/form-data">
@@ -153,8 +165,8 @@
                     url: '{{ route('sendOtp') }}',
                     type: 'post',
                     data: {
-                        'email':  email,
-                         "_token": '{{ csrf_token() }}',
+                        'email': email,
+                        "_token": '{{ csrf_token() }}',
                     },
                     success: function(response) {
                         $('#verificationForm').html(response.data);

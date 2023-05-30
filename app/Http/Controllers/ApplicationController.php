@@ -27,7 +27,6 @@ class ApplicationController extends Controller
 
         $this->sendOtp($complaints_suggestions); //OTP SEND
 
-        // return redirect(route('verifiedOtp', ['id' => $complaints_suggestions->id]));
         return view('complaint');
     }
 
@@ -43,7 +42,7 @@ class ApplicationController extends Controller
         $otp = rand(100000, 999999);
         $time = time();
 
-        // updateOrCreate
+
         EmailVerification::updateOrCreate(
             ['email' => $request->email],
             [
@@ -93,6 +92,7 @@ class ApplicationController extends Controller
         }
     }
 }
+
 
 
 

@@ -54,11 +54,7 @@ Route::group(['middleware'  => ['auth']], function () {
         // Route To//
         Route::get('/verification/{id}', [ApplicationController::class, 'verification'])->name('verification');
 
-        // Route To verify Otp//
-        // Route::post('/verified', [ApplicationController::class, 'verifiedOtp'])->name('verifiedOtp');
 
-        // Route TO Resend Otp//
-        // Route::get('/resend-otp', [ApplicationController::class, 'resendOtp'])->name('resendOtp');
         Route::post('/resend-otp', [ApplicationController::class, 'sendOtp'])->name('sendOtp');
     });
 
@@ -94,4 +90,11 @@ Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
 
 
 
+
+
+// Route To verify Otp//
+// Route::post('/verified', [ApplicationController::class, 'verifiedOtp'])->name('verifiedOtp');
+
+// Route TO Resend Otp//
+// Route::get('/resend-otp', [ApplicationController::class, 'resendOtp'])->name('resendOtp');
 // Route::get('/user', [UserController::class, 'user'])->name('user');

@@ -10,9 +10,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('plugins/ fontawesome - free / css / all . min . css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('plugins/ fontawesome - free / css / all . min . css') }}"> --}}
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('dist/ css / adminlte . min . css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('dist/ css / adminlte . min . css') }}"> --}}
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -51,7 +51,7 @@
 
     {{-- @include('layouts.include.footer') --}}
 
-   
+
     {{-- toastr js  --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="

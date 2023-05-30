@@ -32,6 +32,7 @@ class ComplaintController extends Controller
 
     public function postComplaints(ComplaintSuggestionRequest $request)
     {
+
         // dump($request->otp);
         $complaints_suggestions = EmailVerification::where('email', $request->email)->first();
         // dd($complaints_suggestions);
@@ -51,11 +52,10 @@ class ComplaintController extends Controller
             $complaints_suggestions->type = $request->type;
             $complaints_suggestions->file = $filename;
             $complaints_suggestions->save();
-            return redirect()->back()->with('succes', 'Application has been send successfully.');
-        }else{
-            return redirect()->back()->with('error', 'something wnet wrong?');
+            return redirect()->back()->with('success', 'Application has been send successfully.');
+        } else {
+            return redirect()->back()->with('error', 'something went wrong?');
         }
-
     }
 
 
@@ -144,4 +144,3 @@ class ComplaintController extends Controller
         ]);
     }
 }
-
